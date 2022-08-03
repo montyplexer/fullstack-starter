@@ -10,8 +10,10 @@ import org.springframework.data.annotation.Version;
 @Data
 public class Product {
   private String id;
+
   @Version
   private long version;
+  
   @NotBlank(message = "Product Name was not provided.")
   private String name;
 }
