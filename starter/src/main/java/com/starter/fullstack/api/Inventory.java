@@ -13,20 +13,32 @@ import org.springframework.data.annotation.Version;
  */
 @Data
 public class Inventory {
+
   private String id;
+
   @Version
   private long version;
+
   @NotBlank(message = "Inventory Name was not provided.")
   private String name;
+
   @NotBlank(message = "Inventory Product Type was not provided.")
   private String productType;
+
   private String description;
+
   @Min(0)
   private BigDecimal averagePrice;
+
   @Min(0)
   private BigDecimal amount;
+
   private UnitOfMeasurement unitOfMeasurement;
+
   private Instant bestBeforeDate;
+
   private boolean neverExpires;
+
   private List<String> availableStores;
+
 }
