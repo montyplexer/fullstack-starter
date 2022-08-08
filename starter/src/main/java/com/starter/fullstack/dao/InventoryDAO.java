@@ -28,7 +28,7 @@ public class InventoryDAO {
   }
 
   /**
-   * Constructor to build indexes for rate blackout object
+   * Constructor to build indices for rate blackout object
    */
   @PostConstruct
   public void setupIndexes() {
@@ -46,13 +46,22 @@ public class InventoryDAO {
   }
 
   /**
+   * True if no inventories are present in collection.
+   * @return
+   */
+  //public boolean isEmpty() { return findAll().isEmpty(); }
+
+  /**
+   * TASK #1
    * Save Inventory.
    * @param inventory Inventory to Save/Update.
    * @return Created/Updated Inventory.
    */
   public Inventory create(Inventory inventory) {
-    // TODO
-    return null;
+    // Set the inventory's Mongo ID to null
+    inventory.setId(null);
+    // Insert the inventory object into the Mongo collection
+    return mongoTemplate.save(inventory);
   }
 
   /**

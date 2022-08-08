@@ -13,7 +13,7 @@ public class Product {
 
   @Version
   private long version;
-  
+
   @NotBlank(message = "Product Name was not provided.")
   private String name;
 }

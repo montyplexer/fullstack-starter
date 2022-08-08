@@ -49,4 +49,27 @@ public class InventoryDAOTest {
     List<Inventory> actualInventory = this.inventoryDAO.findAll();
     Assert.assertFalse(actualInventory.isEmpty());
   }
+
+  /**
+   * TASK #1
+   * Test Create method.
+   */
+  @Test
+  public void create() {
+    // Set up a new inventory
+    Inventory inventory = new Inventory();
+    inventory.setName(NAME);
+    inventory.setProductType(PRODUCT_TYPE);
+    // Invoke method
+    inventoryDAO.create(inventory);
+    // Check functionality
+    //  Retrieve all inventories
+    List<Inventory> actualInventory = this.inventoryDAO.findAll();
+    //  Make sure inventory was added
+    Assert.assertFalse(actualInventory.isEmpty());
+    //  Make sure added inventory's Mongo ID is null
+    String entry = actualInventory.get(0).getId();
+    Assert.assertNull(entry);
+  }
+
 }
