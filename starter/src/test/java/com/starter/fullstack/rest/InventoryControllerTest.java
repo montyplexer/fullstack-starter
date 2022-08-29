@@ -55,7 +55,7 @@ public class InventoryControllerTest {
      */
     @Test
     public void findAll() throws Throwable {
-        this.mockMvc.perform(get("/products")
+        this.mockMvc.perform(get("/inventories")
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().json("[" + this.objectMapper.writeValueAsString(inventory) + "]"));
@@ -70,7 +70,7 @@ public class InventoryControllerTest {
         this.inventory = new Inventory();
         this.inventory.setId("OTHER ID");
         this.inventory.setName("ALSO TEST");
-        this.mockMvc.perform(post("/products")
+        this.mockMvc.perform(post("/inventories")
                 .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(this.objectMapper.writeValueAsString(this.inventory)))
@@ -85,7 +85,7 @@ public class InventoryControllerTest {
      */
     @Test
     public void remove() throws Throwable {
-        this.mockMvc.perform(delete("/products")
+        this.mockMvc.perform(delete("/inventories")
                 .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("[\"" + this.inventory.getId() + "\"]"))
