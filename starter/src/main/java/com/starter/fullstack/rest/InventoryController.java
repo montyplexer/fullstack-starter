@@ -28,7 +28,7 @@ public class InventoryController {
 
   /**
    * Find Inventories.
-   * @return List of Product.
+   * @return List of Inventories.
    */
   @GetMapping
   public List<Inventory> findInventories() {
@@ -38,25 +38,33 @@ public class InventoryController {
   /** TODO */
 
   /**
+   * TASK #2
    * Save Inventory.
    * @param inventory inventory.
    * @return Inventory.
    */
   @PostMapping("/inventory")
-  public Product saveInventory(@Valid @RequestBody Inventory inventory) {
-    return this.inventoryDAO.save(inventory);
+  public Inventory createInventory(@Valid @RequestBody Inventory inventory) {
+    return this.inventoryDAO.create(inventory);
   }
 
+
+
+
+
+  /* */
+
   /**
-   * Delete Product By Id.
+   * Delete Inventory By Id.
    *
    * @param ids ids.
    */
+  /**
   @DeleteMapping("/inventory")
-  public void deleteProductById(@RequestBody List<String> ids) {
+  public void deleteInventoryById(@RequestBody List<String> ids) {
     Assert.notEmpty(ids, "Product Ids were not provided");
     this.productDAO.deleteProductsByIdIn(ids);
   }
-
+   */
 }
 
